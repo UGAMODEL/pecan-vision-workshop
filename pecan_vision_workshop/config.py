@@ -20,14 +20,15 @@ class WorkshopConfig:
 
     @classmethod
     def from_dict(cls, payload: dict[str, Any]) -> "WorkshopConfig":
+        defaults = cls()
         return cls(
-            model_name=payload.get("model_name", cls.model_name),
-            input_shape=tuple(payload.get("input_shape", cls.input_shape)),
+            model_name=payload.get("model_name", defaults.model_name),
+            input_shape=tuple(payload.get("input_shape", defaults.input_shape)),
             confidence_threshold=float(
-                payload.get("confidence_threshold", cls.confidence_threshold)
+                payload.get("confidence_threshold", defaults.confidence_threshold)
             ),
-            preprocessing=payload.get("preprocessing", cls.preprocessing),
-            output_dir=payload.get("output_dir", cls.output_dir),
+            preprocessing=payload.get("preprocessing", defaults.preprocessing),
+            output_dir=payload.get("output_dir", defaults.output_dir),
         )
 
 
