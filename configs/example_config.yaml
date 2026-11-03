@@ -1,0 +1,7 @@
+model_name: base-vision-model
+input_shape: [224, 224]
+confidence_threshold: 0.5
+preprocessing:
+  normalize: true
+  resize_mode: bilinear
+output_dir: artifacts
